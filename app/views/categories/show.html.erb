@@ -1,0 +1,16 @@
+<h3 class="text-primary">
+    <b>Нормативные правовые акты
+        <small class="text-primary"><%=@category.name%></small>
+    </b>
+</h3>
+
+<%=render 'searchPanel'%>
+<%=link_to 'Новый документ', new_document_path(category_id: @category.id), class: "btn btn-default"%>
+<div class="tableDoc">
+
+    <%=render 'table'%>
+</div>
+
+<%= link_to 'Edit', edit_category_path(@category) %>
+|
+<%= link_to 'Back', categories_path %>

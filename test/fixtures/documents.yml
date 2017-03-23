@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doc_num: MyString
+  doc_date: 2016-11-03 10:56:17
+  type: 
+  content: MyText
+  branch: MyString
+  geography: MyString
+  office: MyString
+  fund: MyString
+  inventory: MyString
+  storage_unit: 1
+  page: MyString
+  note: MyString
+
+two:
+  doc_num: MyString
+  doc_date: 2016-11-03 10:56:17
+  type: 
+  content: MyText
+  branch: MyString
+  geography: MyString
+  office: MyString
+  fund: MyString
+  inventory: MyString
+  storage_unit: 1
+  page: MyString
+  note: MyString

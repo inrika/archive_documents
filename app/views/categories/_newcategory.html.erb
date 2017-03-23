@@ -1,0 +1,12 @@
+<%= form_for((Category.new)) do |f| %>
+<div class="row">
+    <div class="col-xs-7">
+        <%= f.label :name, "Название" , class:"sr-only" %>
+
+        <%= f.text_field :name, class:"form-control", placeholder:"Название категории" %>
+    </div>
+    <div class="col-xs-2">
+        <%= f.submit "Добавить",  class:"btn " %>
+    </div>
+</div>
+<% end %>

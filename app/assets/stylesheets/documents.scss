@@ -1,0 +1,29 @@
+// Place all the styles related to the documents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*.searchPanel{
+  display: none;
+}*/
+
+/*#loadDoc{
+  display: none;
+}
+*/
+#document_content{
+  height: 300px;
+}
+#doc_num{
+ width:80px;
+}
+#start_date{
+ width:135px;
+}
+#end_date{
+ width:135px;
+}
+#doc_type{
+ width:110px;
+}
+#content{
+ width:350px;
+}

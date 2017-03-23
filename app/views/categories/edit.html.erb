@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Изменить название категории:</div>
+    <div class="panel-body">
+        <%= form_for((@category), html:{class:"form-in"}) do |f| %>
+        <div class="form-group">
+            <%= f.label :name, "Название" , class:"sr-only" %>
+            <%= f.text_field :name, class:"form-control", placeholder:"Название категории" %>
+        </div>
+        <%= f.submit "Изменить",  class:"btn " %>
+        <% end %>
+    </div>
+</div>
+
+<%= link_to 'Назад', categories_path %>

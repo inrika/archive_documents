@@ -1,0 +1,21 @@
+$.fancybox("<h2>Спасибо! Теперь вы сможете получать актуальные предложения на вашу почту</h2>",
+  {
+    tpl: {
+      closeBtn : '<a title="Закрыть" class="fancybox-item fancybox-close" href="javascript:;"></a>'
+    }
+  }
+);
+
+def flash_messages
+    html= ""
+    %w(notice warning error).map do |msg|
+      content_tag(:script, flash.each do |key, value|
+        if value == Spree.t(:order_processed_successfully)
+          (html += "$(document).ready(function() {$.fancybox.open(\""+value.to_s+"\", { minWidth: 'auto', minHeight: 'auto', closeBtn: true});});") 
+        else
+          (html += "$(document).ready(function() {$.fancybox.open(\""+value.to_s+"\", { minWidth: 'auto', minHeight: 'auto', closeBtn: false});  setTimeout(function(){ $.fancybox.close();}, 1500)});")     
+        end
+      end ) unless flash[msg.to_sym].blank?
+    end.join("\n").html_safe
+    raw (html)
+  end

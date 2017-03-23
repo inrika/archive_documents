@@ -1,0 +1,69 @@
+<p class="lead">
+    <b>Документ №:
+    </b>
+    <%= @document.doc_num %>
+    <b>
+        от
+    </b>
+    <%= @document.doc_date.strftime("%d.%m.%Y")unless @document.doc_date.blank? %>
+</p>
+
+<div class="row">
+    <div class="col-xs-6">
+        <p class="lead">
+            <strong>Вид документа:</strong>
+            <%= @document.doc_type %>
+        </p>
+    </div>
+    <div class="col-xs-6">
+        <p class="lead">
+            <strong>Отрасль:</strong>
+            <%= @document.branch %>
+        </p>
+    </div>
+</div>
+<p class="lead">
+    <strong>Содержание документa</strong>
+    <br>
+    <%= @document.content%>
+</p>
+<p class="lead">
+    <strong>География:</strong>
+    <%= @document.geography %>
+</p>
+<p class="lead">
+    <strong>Учреждение</strong>
+    <%= @document.office%>
+</p>
+<div class="row">
+    <div class="col-xs-3">
+        <p class="lead">
+            <strong>Фонд</strong>
+            <%= @document.fund%>
+        </p>
+    </div>
+    <div class="col-xs-3">
+        <p class="lead">
+            <strong>Опись:</strong>
+            <%= @document.inventory %>
+        </p>
+    </div>
+    <div class="col-xs-3">
+        <p class="lead">
+            <strong>Единица хранения</strong>
+            <%= @document.storage_unit%>
+        </p>
+    </div>
+    <div class="col-xs-3">
+        <p class="lead">
+            <strong>Лист:</strong>
+            <%= @document.page %>
+        </p>
+    </div>
+</div>
+
+<p class="lead">
+    <strong>Примечание</strong>
+    <%= @document.note%>
+</p>
+<%=link_to 'Назад', :back, class: "btn btn-default"%>

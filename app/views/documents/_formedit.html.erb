@@ -1,0 +1,67 @@
+<%= form_for ([@category, @document ]) do |f| %>
+<div class="row">
+    <div class="col-xs-2">
+        <%= f.label :doc_num, "Номер документа"%>
+        <%= f.text_field :doc_num, class: "form-control" %>
+    </div>
+    <div class="col-xs-3">
+        <%= f.label :doc_date, "Дата документа" %>
+        <%= f.date_field :doc_date, class: "form-control"  %>
+    </div>
+    <div class="col-xs-3">
+        <%= f.label :doc_type, "Вид документа" %><br>
+        <%= f.select :doc_type, options_for_select([["Постановление"],["Закон"],["Обращение"], ["Декларация"]]), class: "form-control" %>
+    </div>
+    <div class="col-xs-3">
+        <%= f.label :branch, "Отрасль" %>
+        <%= f.text_field :branch, class: "form-control" %>
+    </div>
+</div>
+
+<div class="row">
+
+    <%= f.label :content, "Содержание документа" %><br>
+    <div class="col-lg-10">
+        <%= f.text_area :content, class: "form-control" %>
+
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-xs-3">
+        <%= f.label :geography, "География" %>
+        <%= f.select :geography, options_for_select([["Тверская область",1],["Тверь",2],["Российская Федерация",3]]) %>
+    </div>
+    <div class="col-xs-3">
+        <%= f.label :office, "Учреждение" %>
+        <%= f.text_field :office, class: "form-control" %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-3">
+        <%= f.label :fund, "Фонд" %>
+        <%= f.text_field(:fund, value: "3241", class: "form-control") %>
+    </div>
+    <div class="col-xs-3">
+        <%= f.label :inventory, "Опись" %>
+        <%= f.text_field :inventory, class: "form-control" %>
+    </div>
+    <div class="col-xs-3">
+        <%= f.label :storage_unit, "Единица хранения" %>
+        <%= f.text_field :storage_unit, class: "form-control"%>
+    </div>
+    <div class="col-xs-3">
+        <%= f.label :page, "Лист" %>
+        <%= f.text_field :page, class: "form-control" %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-3">
+        <%= f.label :note, "Примечание    " %>
+        <%= f.text_field :note, class: "form-control" %>
+
+    </div>
+</div>
+<%=f.submit "Сохранить документ" %>
+<%=link_to 'Отменить', :back, class: "btn btn-default"%>
+<% end %>

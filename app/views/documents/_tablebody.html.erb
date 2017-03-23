@@ -1,0 +1,23 @@
+<tr>
+    <% @documents.each do|document|%>
+    <tr>
+        <td ><%= document.doc_num %>
+        </td>
+        <td ><%= document.doc_date.strftime("%d.%m.%Y")unless document.doc_date.blank? %></td>
+        <td width="13%"><%=document.doc_type%>
+        </td>
+        <td width="40%"><%=link_to document.content, document_path(document)%></td>
+        <td ><%=document.fund%>
+        </td>
+        <td ><%=document.inventory%></td>
+        <td ><%=document.storage_unit%>
+        </td>
+        <td ><%=document.page%></td>
+
+        <td ><%= link_to 'Редактировать', edit_category_document_path(id: document, category_id: document.category.id,)%>
+            <br>
+            <%= link_to 'Удалить', document_path(document),
+                    method: :delete,
+                    data: { confirm: 'Вы уверены?' }%></td>
+    </tr>
+    <%end%>

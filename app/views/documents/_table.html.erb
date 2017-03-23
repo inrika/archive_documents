@@ -1,0 +1,54 @@
+<span id="paginate">
+    <%=render 'paginate'%>
+</span>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th width=5%>номер</th>
+            <th >дата
+            </th>
+            <th >вид</th>
+            <th >содержание</th>
+            <th >фонд</th>
+            <th >опись</th>
+            <th >ед.хр.</th>
+            <th >лист</th>
+            <th ></th>
+        </tr>
+        <tr>
+            <th width=5%>
+                <%=text_field_tag("doc_num",current_doc_num, form: "searchform")%></th>
+            <th>
+                <%=date_field_tag('start_date',current_start_date, form: "searchform")  %>
+                <br>
+                <%= date_field_tag('end_date', current_end_date, form: "searchform") %>
+            </th>
+            <th><%= select_tag :doc_type, options_for_select([["Все", 'all'],["Постановление"],["Закон"],["Обращение"], ["Декларация"],["Распоряжение"] ], current_doc_type), form: "searchform" %></th>
+
+            <th ><%=text_field_tag("content", current_content,form: "searchform")%></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th >
+                <%=submit_tag("Фильтр", id: "searchButton", form: "searchform") %>
+                <%=link_to "Очистить",category_documents_path, id: "clearButton",class:"btn btn-default" %>
+
+            </th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan=2>
+                <b>Показано документов
+                </b>
+            </td>
+            <td colspan=7>
+                <b><%=@documents.count%></b>
+            </td>
+        </tr>
+    </tfoot>
+    <tbody id="tablebody">
+        <%=render 'tablebody'%>
+    </tbody >
+</table>
