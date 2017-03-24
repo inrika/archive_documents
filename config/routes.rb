@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :document_types 
   resources :categories do
     resources :documents do
       collection do

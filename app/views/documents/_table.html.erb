@@ -23,7 +23,8 @@
                 <br>
                 <%= date_field_tag('end_date', current_end_date, form: "searchform") %>
             </th>
-            <th><%= select_tag :doc_type, options_for_select([["Все", 'all'],["Постановление"],["Закон"],["Обращение"], ["Декларация"],["Распоряжение"] ], current_doc_type), form: "searchform" %></th>
+            <th><% types_array = DocumentType.all.map { |document_type| [document_type.name] } %>
+            <%= select_tag :doc_type, options_for_select(types_array.unshift(["Все", 'all']), current_doc_type), form: "searchform" %></th>
 
             <th ><%=text_field_tag("content", current_content,form: "searchform")%></th>
             <th ></th>

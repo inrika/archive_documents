@@ -1,0 +1,35 @@
+<h3 class="text-primary">
+    <b> Виды документов
+    </b>
+</h3>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @document_types.each do |document_type| %>
+        <tr>
+            <td><%=document_type.name %></td>
+            <td><%= link_to 'Редактировать', edit_document_type_path(document_type) %></td>
+            <td><%= link_to 'Удалить', document_type, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<div>
+    <%= link_to "Добавить вид документа", new_document_type_path, method: :get, class:"btn btn-default document_typeLink", remote:true%>
+</div>
+
+<div id="document_type">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <%=render 'newdocument_type'%>
+        </div>
+    </div>
+</div>
+<%=link_to 'Назад', root_path, class: "btn btn-default"%>

@@ -6,5 +6,11 @@ document.addEventListener("turbolinks:load", function() {
 
     })
 
+    $(".document_typeLink").on ("click",function(){
+      $("#document_type").toggle();
+
+    })
+
+
 $("#flash").fadeOut(3000)
 })

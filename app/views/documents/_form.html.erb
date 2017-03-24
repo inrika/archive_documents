@@ -10,7 +10,7 @@
     </div>
     <div class="col-xs-3">
         <%= f.label :doc_type, "Вид документа" %><br>
-        <%= f.select :doc_type, options_for_select([["Постановление"],["Закон"],["Обращение"], ["Декларация"]]), class: "form-control" %>
+      <%= f.select :doc_type, options_for_select(DocumentType.all.map { |document_type| [document_type.name] }), class: "form-control" %>
     </div>
     <div class="col-xs-3">
         <%= f.label :branch, "Отрасль" %>
