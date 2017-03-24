@@ -6,11 +6,11 @@
 
 <%=render 'searchPanel'%>
 <%=link_to 'Новый документ', new_document_path(category_id: @category.id), class: "btn btn-default"%>
-<%=link_to 'Другая категория', categories_path, class: "btn btn-default"%>
-<%=link_to 'Загрузить документы', import_documents_documents_path(category_id: @category.id), id: "loadDoc"%><br>
-<%=link_to 'Связать с категорией', load_reference_documents_path(category_id: @category.id), id: "linkdDoc"%><br>
+<%=link_to 'Все категория', categories_path, class: "btn btn-default"%>
 
 <div class="tableDoc">
 
     <%=render 'table'%>
 </div>
+<%=link_to 'Загрузить документы', import_documents_documents_path(category_id: @category.id), id: "loadDoc"%><br>
+<%=link_to 'Связать с категорией', load_reference_documents_path(category_id: @category.id), id: "linkdDoc"%><br>
