@@ -28,21 +28,12 @@
         </tr>
         <% end %>
     </tbody>
-<<<<<<< HEAD
-</table>
-<div>
-    <%= link_to "Виды документов", document_types_path, method: :get, class:"btn btn-default"%>
-    <%= link_to "Добавить категорию", new_category_path, method: :get, class:"btn btn-default categoryLink", remote:true%>
-</div>
-=======
 </table>
 <% if admin_signed_in? %>
   <div>
       <%= link_to "Виды документов", document_types_path, method: :get, class:"btn btn-default"%>
       <%= link_to "Добавить категорию", new_category_path, method: :get, class:"btn btn-default categoryLink", remote:true%>
   </div>
->>>>>>> devise
-
   <div id="category">
       <div class="panel panel-default">
           <div class="panel-body">
