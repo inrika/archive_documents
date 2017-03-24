@@ -15,21 +15,43 @@
         <% @categories.each do |category| %>
         <tr>
             <td><%= link_to category.name, category_documents_path(category_id: category.id) %></td>
-            <td><%= link_to 'Редактировать', edit_category_path(category) %></td>
-            <td><%= link_to 'Удалить', category, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+            <td>
+             <% if admin_signed_in?%>
+               <%= link_to 'Редактировать', edit_category_path(category) %>
+             <%end%>
+            </td>
+            <td>
+              <% if admin_signed_in?%>
+                <%= link_to 'Удалить', category, method: :delete, data: { confirm: 'Вы уверены?' } %>
+              <%end%>
+            </td>
         </tr>
         <% end %>
     </tbody>
+<<<<<<< HEAD
 </table>
 <div>
     <%= link_to "Виды документов", document_types_path, method: :get, class:"btn btn-default"%>
     <%= link_to "Добавить категорию", new_category_path, method: :get, class:"btn btn-default categoryLink", remote:true%>
 </div>
+=======
+</table>
+<% if admin_signed_in? %>
+  <div>
+      <%= link_to "Виды документов", document_types_path, method: :get, class:"btn btn-default"%>
+      <%= link_to "Добавить категорию", new_category_path, method: :get, class:"btn btn-default categoryLink", remote:true%>
+  </div>
+>>>>>>> devise
 
-<div id="category">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <%=render 'newcategory'%>
-        </div>
-    </div>
-</div>
+  <div id="category">
+      <div class="panel panel-default">
+          <div class="panel-body">
+              <%=render 'newcategory'%>
+          </div>
+      </div>
+  </div>
+  <%=link_to 'Выйти',destroy_admin_session_path, :method => :delete %>
+<% else %>
+   <%=link_to 'Войти',admin_session_path %>
+
+<%end%>

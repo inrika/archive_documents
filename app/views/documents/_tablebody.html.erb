@@ -12,12 +12,16 @@
         <td ><%=document.inventory%></td>
         <td ><%=document.storage_unit%>
         </td>
-        <td ><%=document.page%></td>
+        <td><%=document.page%></td>
 
-        <td ><%= link_to 'Редактировать', edit_category_document_path(id: document, category_id: document.category.id,)%>
+        <td>
+            <% if admin_signed_in?%>
+            <%= link_to 'Редактировать', edit_category_document_path(id: document, category_id: document.category.id,)%>
             <br>
             <%= link_to 'Удалить', document_path(document),
                     method: :delete,
-                    data: { confirm: 'Вы уверены?' }%></td>
+                    data: { confirm: 'Вы уверены?' }%>
+            <%end%>
+        </td>
     </tr>
     <%end%>
