@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if session[:doc_num]
       return session[:doc_num]
 #      session[:doc_num] = nil
-     else
+    else
      return ''
     end
   end

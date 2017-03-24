@@ -5,11 +5,11 @@ class DocumentsController < ApplicationController
  def index
     @category = Category.find(params[:category_id])
     if params[:doc_num] || params[:content] || params[:start_date] || params[:start_date] || params[:doc_type]
-      set_session_filter(:docnum, :content, :start_date, :end_date, :doc_type)
+      set_session_filter(:doc_num, :content, :start_date, :end_date, :doc_type)
       @documents = filtered_documents.paginate(page: params[:page], per_page: 7).order('id DESC')
     else
      #если был установлен фильтр то очистить
-      clear_session_filter(:docnum, :content, :start_date, :end_date, :doc_type)
+      clear_session_filter(:doc_num, :content, :start_date, :end_date, :doc_type)
       @documents = @category.documents.paginate(page: params[:page], per_page: 7).order('id DESC')
     end
  end
