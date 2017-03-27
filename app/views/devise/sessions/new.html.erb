@@ -1,26 +1,33 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class=" field">
-    <%= f.label :username, t('devise.sessions.username') %><br />
-    <%= f.text_field :username, autofocus: true, class:"form-control" %>
-  </div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><%=t('devise.sessions.log_in')%></div>
+        <div class="panel-body">
+         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+           <div class=" field form-group">
+             <%= f.label :username, t('devise.sessions.username') %><br />
+             <%= f.text_field :username, autofocus: true, placeholder: "Введите логин", class:"form-control" %>
+           </div>
+           <div class="field form-group">
+             <%= f.label :password, t('devise.sessions.password') %><br />
+             <%= f.password_field :password, autocomplete: "off", placeholder: "Введите пароль", class:"form-control" %>
+           </div>
 
-  <div class="field">
-    <%= f.label :password, t('devise.sessions.password') %><br />
-    <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
-  </div>
+           <% if devise_mapping.rememberable? -%>
+             <div class="field checkbox">
+                <p>
+                 <%= f.check_box :remember_me %>
+                 <%= f.label :remember_me, t('devise.sessions.remember_me') %>
+                </p>
+             </div>
+           <% end -%>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, t('devise.sessions.remember_me') %>
+           <div class="actions">
+             <%= f.submit t('devise.sessions.log_in'), class: "btn btn-default" %>
+           </div>
+         <% end %>
+
+         <%= render "devise/shared/links" %>
+
+
+        </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

@@ -12,4 +12,4 @@ ru:
       username: "Логин"
       password: "Пароль"
       remember_me: "Запомнить"
-   
+      log_in: "Войти"
