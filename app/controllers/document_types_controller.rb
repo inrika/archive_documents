@@ -1,7 +1,9 @@
 class DocumentTypesController < ApplicationController
+   before_filter :authenticate_admin!, except: [:index, :show]
+
  def index
    @document_types = DocumentType.all
-  end
+ end
 
   def new
     @document_type = DocumentType.new
