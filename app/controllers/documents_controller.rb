@@ -61,8 +61,8 @@ class DocumentsController < ApplicationController
 
  def import_documents
    require 'csv'
-#   CSV.foreach('C:\Sites\legal_doc\bd2.csv', headers: true) do |row|
-   CSV.foreach('C:\Sites\legal_doc\adm.csv', headers: true) do |row|
+#   CSV.foreach('C:\Sites\archive_documents\bd2.csv', headers: true) do |row|
+   CSV.foreach('C:\Sites\archive_documents\adm1.csv', col_sep: ';',headers: true) do |row|
       @category = Category.find(params[:category_id])
       @category = Category.find(params[:category_id])
       @document= Document.new()
